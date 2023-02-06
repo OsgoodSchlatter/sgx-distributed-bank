@@ -4,7 +4,6 @@
 void BankServiceImpl::BankCreate(int64_t cap)
 {
     int *ptr_cap = (int *)&cap;
-    // printf("[%s]\n", __func__);
     bank_create(global_eid, &retval, ptr_cap);
 }
 
@@ -13,9 +12,7 @@ BankServiceImpl::CreateAccount(grpc::ServerContext *context,
                                const bank::AccountCreateReq *request,
                                bank::AccountCreateResp *response)
 {
-    // printf("[%s]\n", __func__);
     const char *account_name = request->account_name().c_str();
-    // printf("[bankservice] CreateAccount %s \n", account_name);
     account_create(global_eid, &retval, account_name);
 
     response->set_new_amount(0);
@@ -27,8 +24,6 @@ BankServiceImpl::AddAmount(grpc::ServerContext *context,
                            const bank::AmountAddReq *request,
                            bank::AmountAddResp *response)
 {
-    // printf("[%s] de bankservice \n", __func__);
-
     const char *account_name = request->account_name().c_str();
     int amount = request->amount();
     int *ptr_amount = (int *)&amount;
@@ -43,8 +38,6 @@ BankServiceImpl::SubAmount(grpc::ServerContext *context,
                            const bank::AmountSubReq *request,
                            bank::AmountSubResp *response)
 {
-    // printf("[%s] de bankservice \n", __func__);
-
     const char *account_name = request->account_name().c_str();
     int amount = request->amount();
     int *ptr_amount = (int *)&amount;
@@ -60,8 +53,6 @@ BankServiceImpl::ListAccount(grpc::ServerContext *context,
                              const bank::Empty *request,
                              bank::Empty *response)
 {
-    // printf("[%s] de bankservice \n", __func__);
-
     list_accounts(global_eid, &retval);
     return grpc::Status::OK;
 }

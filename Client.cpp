@@ -20,7 +20,6 @@ int main(int argc, char const *argv[])
     int nbAccounts = atoi(argv[1]);
 
     FILE *filewithnames = fopen("tenkusernames.txt", "r");
-    // FILE *filewithnames = fopen("names.txt", "r");
 
     char line[256];
 
@@ -178,14 +177,4 @@ int main(int argc, char const *argv[])
         printf("mean %s = %.2f %s\n", namemeasure[k], avg[k] * puiss[k % 2], units[k]);
         printf("std of %s = %.2f\n", namemeasure[k], st_deviation * puiss[k % 2]);
     }
-
-    // cli.CreateAccount("Eloi");
-    // cli.AddAmount("Eloi", 100);
-    // cli.CreateAccount("ouaoua");
-    // cli.AddAmount("ouaoua", 800);
-    // cli.CreateAccount("ptit ben");
-    // cli.AddAmount("ptit ben", -200);
-    // cli.SubAmount("ptit ben", 93200);
-
-    // cli.ListAccount();
 }

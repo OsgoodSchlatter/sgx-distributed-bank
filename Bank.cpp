@@ -122,7 +122,6 @@ int account_create(const char *account_name)
         return -1;
     strncpy(account_name_copy, (char *)account_name, strlen((char *)account_name) + 1);
     set_value(bank->map, account_name_copy, 0);
-    // man_printf("Account %s : value %d\n", (char *)account_name_copy, get_value(bank->map, (char *)account_name_copy));
     count++;
     if (count % 200 == 0)
     {
